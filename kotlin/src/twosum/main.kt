@@ -6,7 +6,6 @@ fun main() {
 
     val nums = intArrayOf(1, 3, 4)
 
-
     val result = Solution().twoSum(intArrayOf(1), 9)
 
 }
@@ -18,7 +17,6 @@ class Solution {
         var resultA = 0
         for ((n, _) in nums.withIndex()) {
             val a = nums[n]
-
 
             val exceptNArray = nums.drop(n + 1)
 
@@ -35,7 +33,6 @@ class Solution {
             }
             resultA = n
             break
-
 
         }
         return intArrayOf(resultA, resultB)
