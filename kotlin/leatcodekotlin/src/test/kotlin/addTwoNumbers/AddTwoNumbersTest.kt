@@ -1,7 +1,9 @@
 package addTwoNumbers
 
+import addTwoNumbers.Solution
 import org.junit.Before
 import org.junit.Test
+
 
 class AddTwoNumbersTest {
 

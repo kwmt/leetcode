@@ -1,0 +1,4 @@
+rootProject.name = 'leatcode-kotlin'
+include 'leatcodekotlin'
+findProject(':leatcodekotlin')?.name = 'leatcode-kotlin'
+

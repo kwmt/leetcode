@@ -1,7 +1,6 @@
 package twosum
 
-import java.lang.IllegalStateException
-import java.util.HashMap
+import java.util.*
 
 fun main() {
 

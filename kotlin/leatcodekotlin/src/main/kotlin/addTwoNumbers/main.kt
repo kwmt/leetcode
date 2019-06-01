@@ -21,8 +21,8 @@ class Solution {
             val y = if (q != null) q!!.`val` else 0
             val sum = carry + x + y
             carry = sum / 10
-            curr.next = ListNode(sum % 10)
-            curr = curr.next
+            curr?.next = ListNode(sum % 10)
+            curr = curr?.next
             if (p != null) p = p!!.next
             if (q != null) q = q!!.next
         }
