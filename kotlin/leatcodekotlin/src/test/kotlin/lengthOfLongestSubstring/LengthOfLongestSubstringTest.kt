@@ -15,8 +15,33 @@ class LengthOfLongestSubstringTest {
     }
 
     @Test
-    fun lengthOfLongestSubstringTest() {
-        val result = target.lengthOfLongestSubstring("test")
-        assertEquals(0, result)
+    fun lengthOfLongestSubstringTest1() {
+        val result = target.lengthOfLongestSubstring("abcabcbb")
+        assertEquals(3, result)
+    }
+    @Test
+    fun lengthOfLongestSubstringTest2() {
+        val result = target.lengthOfLongestSubstring("bbbbb")
+        assertEquals(1, result)
+    }
+    @Test
+    fun lengthOfLongestSubstringTest3() {
+        val result = target.lengthOfLongestSubstring("pwwkew")
+        assertEquals(3, result)
+    }
+    @Test
+    fun lengthOfLongestSubstringTest4() {
+        val result = target.lengthOfLongestSubstring(" ")
+        assertEquals(1, result)
+    }
+    @Test
+    fun lengthOfLongestSubstringTest5() {
+        val result = target.lengthOfLongestSubstring("ckilbkd")
+        assertEquals(5, result)
+    }
+    @Test
+    fun lengthOfLongestSubstringTest6() {
+        val result = target.lengthOfLongestSubstring("dvdf")
+        assertEquals(3, result)
     }
 }
