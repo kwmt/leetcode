@@ -12,7 +12,8 @@ build:
     # Read more about steps on our dev center:
     # https://devcenter.wercker.com/development/steps/
   steps:
-    # https://github.com/wercker/step-gradle
-    - java/gradle:
-      task: build
-      cache_project_cache: true
+    - script:
+        name: kotlin test
+        code: |
+          cd kotlin
+          ./gradlew :leatcode-kotlin:test
