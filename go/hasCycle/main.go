@@ -1,4 +1,4 @@
-package main
+package cycle
 
 import "fmt"
 
@@ -36,4 +36,5 @@ func hasCycle(head *ListNode) bool {
 		}
 		head = head.Next
 	}
+	return false
 }
