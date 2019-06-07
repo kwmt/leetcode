@@ -1,0 +1,4 @@
+package houseRobber
+
+class HouseRobberTest {
+}
