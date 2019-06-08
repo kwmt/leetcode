@@ -26,7 +26,6 @@ private fun fetchConnpassEventList(): List<Event> {
                 response.append(inputLine)
                 inputLine = it.readLine()
             }
-            it.close()
             parseJSON(JSONObject(response.toString()))
         }
     }
