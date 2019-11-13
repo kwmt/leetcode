@@ -1,4 +1,4 @@
-package BestTimetoBuyandSellStock
+package bestTimetoBuyandSellStock
 
 class Solution {
     fun maxProfit(prices: IntArray): Int {

@@ -1,4 +1,4 @@
-package BestTimetoBuyandSellStock
+package bestTimetoBuyandSellStock
 
 import BestTimetoBuyandSellStock2.Solution
 import org.junit.Assert.assertEquals
