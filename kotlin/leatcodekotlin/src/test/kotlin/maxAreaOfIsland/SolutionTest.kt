@@ -38,4 +38,23 @@ class SolutionTest {
         val result = target.maxAreaOfIsland(grid)
         assertThat(result).isEqualTo(0)
     }
+
+    @Test
+    fun maxAreaOfIsland3() {
+        val grid = arrayOf(
+            intArrayOf(1)
+        )
+        val result = target.maxAreaOfIsland(grid)
+        assertThat(result).isEqualTo(1)
+    }
+
+    @Test
+    fun maxAreaOfIsland4() {
+        val grid = arrayOf(
+            intArrayOf(1, 0, 1),
+            intArrayOf(1, 0, 0)
+        )
+        val result = target.maxAreaOfIsland(grid)
+        assertThat(result).isEqualTo(2)
+    }
 }
