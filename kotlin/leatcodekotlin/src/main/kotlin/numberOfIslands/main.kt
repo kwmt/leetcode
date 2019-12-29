@@ -18,6 +18,10 @@ class Solution {
     private var islandCount: Int = 0
 
     fun numIslands(grid: Array<CharArray>): Int {
+        if (grid.isEmpty()) {
+            return 0
+        }
+
         this.grid = grid
         maxColumn = grid[0].size // TODO: エラー処理
         maxRow = grid.size

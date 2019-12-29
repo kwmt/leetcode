@@ -2,7 +2,6 @@ package maxAreaOfIsland
 
 class Solution {
 
-
     private val dx = listOf(1, 0, -1, 0)
     private val dy = listOf(0, 1, 0, -1)
 
@@ -30,13 +29,12 @@ class Solution {
                 startRow = row
                 startCol = column
 
-                if (maxIsland < islandCounter) {
-                    maxIsland = islandCounter
-                    println(maxIsland)
-                }
 
                 islandCounter = 0
                 dfs(startRow, startCol)
+            }
+            if (maxIsland < islandCounter) {
+                maxIsland = islandCounter
             }
         }
 
