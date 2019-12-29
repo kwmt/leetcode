@@ -16,8 +16,9 @@ class Solution {
     private var islandCounter: Int = 0
 
     fun maxAreaOfIsland(grid: Array<IntArray>): Int {
+        if (grid.isEmpty()) return 0
         this.grid = grid
-        maxColumn = grid[0].size // TODO: エラー処理
+        maxColumn = grid[0].size
         maxRow = grid.size
         seen = Array(maxRow) { BooleanArray(maxColumn) { false } }
 
@@ -30,12 +31,16 @@ class Solution {
                 startCol = column
 
 
-                islandCounter = 0
                 dfs(startRow, startCol)
+
+                if (maxIsland < islandCounter) {
+                    maxIsland = islandCounter
+                    println(islandCounter)
+                }
+                islandCounter = 0
             }
-            if (maxIsland < islandCounter) {
-                maxIsland = islandCounter
-            }
+
+
         }
 
         return maxIsland
@@ -48,7 +53,6 @@ class Solution {
             islandCounter += 1
         }
 
-//        println("(${row.value}, ${column.value}) = ${grid[column.value][row.value]}")
         for (i in 0 until 4) {
             val nextColumn = column + dx[i]
             val nextRow = row + dy[i]
@@ -58,23 +62,15 @@ class Solution {
                 || (nextColumn < 0) // 左端オーバー
                 || (nextRow > maxRow - 1) // 下端オーバー
                 || (nextRow < 0) // 上端オーバー
-            ) {
-                continue
-            }
-
-//            println("($x, $y) = ${grid[y][x]}")
+            ) continue
 
             // 水だったらスルー
-            if (grid[nextRow][nextColumn] == 0) {
-//                islandCounter += -1
-                continue
-            }
+            if (grid[nextRow][nextColumn] == 0) continue
 
             // 探索済みならスルー
             if (seen[nextRow][nextColumn]) continue
 
             dfs(nextRow, nextColumn)
-
         }
     }
 }
