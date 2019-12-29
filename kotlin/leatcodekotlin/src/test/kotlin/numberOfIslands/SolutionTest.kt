@@ -25,6 +25,7 @@ class SolutionTest {
         val result = target.numIslands(grid)
         assertThat(result).isEqualTo(1)
     }
+
     @Test
     fun numIslands2() {
         val input = listOf(
@@ -32,6 +33,16 @@ class SolutionTest {
             "11000",
             "00100",
             "00011"
+        )
+        val grid = input.map { it.toCharArray() }.toTypedArray()
+        val result = target.numIslands(grid)
+        assertThat(result).isEqualTo(3)
+    }
+
+    @Test
+    fun numIslands3() {
+        val input = listOf(
+            "1011011"
         )
         val grid = input.map { it.toCharArray() }.toTypedArray()
         val result = target.numIslands(grid)
