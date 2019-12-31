@@ -6,14 +6,13 @@ class Solution {
 
     fun evalRPN(tokens: Array<String>): Int {
         this.tokens = tokens
-
-        tokens.forEachIndexed { index, token ->
-            calculate(index, token)
+        tokens.forEach { token ->
+            calculate(token)
         }
         return stack.pop()
     }
 
-    private fun calculate(i: Int, currentToken: String) {
+    private fun calculate(currentToken: String) {
         val calcResult = when (currentToken) {
             "+" -> add()
             "-" -> minus()
