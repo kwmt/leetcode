@@ -3,24 +3,17 @@ package evaluateReversePolishNotation
 class Solution {
     private var tokens: Array<String> = emptyArray()
     private var stack: ArrayList<Int> = arrayListOf()
-    private var result: Int = 0
 
     fun evalRPN(tokens: Array<String>): Int {
         this.tokens = tokens
-        calculate(0)
-        return result
+
+        tokens.forEachIndexed { index, token ->
+            calculate(index, token)
+        }
+        return stack.pop()
     }
 
-    private fun calculate(i: Int) {
-        val nextIndex = i + 1
-        // 次のindexがTokensサイズを超えていたら、計算終了
-        if (nextIndex > tokens.size) {
-            result = stack.pop()
-            return
-        }
-        val currentToken = tokens[i]
-
-
+    private fun calculate(i: Int, currentToken: String) {
         val calcResult = when (currentToken) {
             "+" -> add()
             "-" -> minus()
@@ -29,7 +22,6 @@ class Solution {
             else -> currentToken.toInt()
         }
         stack.push(calcResult)
-        calculate(nextIndex)
     }
 
     // stackから2つ取り出して、足し算する
