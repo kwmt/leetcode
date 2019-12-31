@@ -12,15 +12,14 @@ class Solution {
         return stack.pop()
     }
 
-    private fun calculate(currentToken: String) {
-        val calcResult = when (currentToken) {
-            "+" -> add()
-            "-" -> minus()
-            "*" -> multiple()
-            "/" -> div()
-            else -> currentToken.toInt()
-        }
-        stack.push(calcResult)
+    private fun calculate(currentToken: String) = when (currentToken) {
+        "+" -> add()
+        "-" -> minus()
+        "*" -> multiple()
+        "/" -> div()
+        else -> currentToken.toInt()
+    }.run {
+        stack.push(this)
     }
 
     // stackから2つ取り出して、足し算する
