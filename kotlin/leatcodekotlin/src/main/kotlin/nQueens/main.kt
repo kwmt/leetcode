@@ -1,68 +1,45 @@
 package nQueens
 
+import java.util.*
+
+
 class Solution {
 
-
-    fun solveNQueens(n: Int): List<List<String>> {
-
-        // board[行][列]
-        val board = Array(n) { Array(n) { "." } }
-        // ボードにクイーンを置くことができない(他のクイーンの導線になっている)場合はfalse
-        // ボードに置くことができる場合はtrue。初期値は全部true。
-        val canPutQueenList = Array(n) { Array(n) { true } }
-
-        // どこにクイーンを置いたか
-        val putQueen = Array(n) { Array(n) { -1 } }
-
-        /**
-         * クイーンを配置したrow, columnをもとに、配置できない場所を確定する
-         */
-        fun setCanPutQueenList(n: Int, row: Int, column: Int) {
-            canPutQueenList[row][column] = false
-            for (i in 0 until n) {
-                canPutQueenList[i][column] = false
-                for (j in 0 until n) {
-                    canPutQueenList[row][j] = false
-
-                    if ( row + i == column + j) {
-                        // 斜め(右下)
-                        if ((row + i < n) && (column + j < n)) {
-                            canPutQueenList[row + i][column + j] = false
-                        }
-                    }
-
-
-                }
-            }
-
-
-        }
-
-        //
-        for (row in 0 until n) {
-            val canPutRow = canPutOnRow(row, n, board)
-
-            for (column in 0 until n) {
-                if (canPutRow && canPutQueenList[row][column]) {
-                    board[row][column] = "Q"
-
-                    setCanPutQueenList(n, row, column)
-
-                    continue
-                }
-            }
-        }
-
-
-
-
-        return emptyList()
-
-
+    var n = 0
+    var ans: ArrayList<List<String?>> = ArrayList()
+    private val queens by lazy { IntArray(n) }
+    fun solveNQueens(n: Int): List<List<String?>>? {
+        this.n = n
+        backtrack(0)
+        return ans
     }
 
-    fun canPutOnRow(row: Int, n: Int, board: Array<Array<String>>): Boolean {
-        // nullなら置かれてないので、その行に置くことができるためtrueを返す
-        return board[row].firstOrNull { it == "Q" } == null
+    private fun backtrack(row: Int) {
+        if (row == n) {
+            val rowls = ArrayList<String>()
+            for (q in queens) {
+                val cs = CharArray(n)
+                Arrays.fill(cs, '.')
+                cs[q] = 'Q'
+                rowls.add(String(cs))
+            }
+            ans.add(rowls)
+            return
+        }
+        for (i in 0 until n) {
+            queens[row] = i
+            if (isValid(queens, row)) backtrack(row + 1)
+        }
     }
+
+    private fun isValid(queens: IntArray, row: Int): Boolean {
+        for (i in 0 until row) {
+            if (queens[row] == queens[i] ||
+                queens[i] + row - i == queens[row] ||
+                queens[row] + row - i == queens[i]
+            ) return false
+        }
+        return true
+    }
+
 }
