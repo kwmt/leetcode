@@ -1,22 +1,26 @@
-package caesarCipher
+package hackerrank.caesarCipher
 
-import org.junit.After
+import com.google.common.truth.Truth.assertThat
 import org.junit.Before
 import org.junit.Test
 
-import org.junit.Assert.*
-
 class SolutionTest {
+
+    private lateinit var target: Solution
+
 
     @Before
     fun setUp() {
+        target = Solution()
     }
 
-    @After
-    fun tearDown() {
-    }
+
 
     @Test
     fun caesarCipher() {
+        val result = target.caesarCipher("middle-Outz", 2)
+
+
+        assertThat(result).isEqualTo("okffng-Qwvb")
     }
 }
