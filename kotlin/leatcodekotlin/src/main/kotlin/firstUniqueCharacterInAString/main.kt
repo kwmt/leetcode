@@ -8,7 +8,6 @@ class Solution {
 
     fun firstUniqChar(s: String): Int {
         val map = hashMapOf<Char, CounterWithIndex>()
-
         var i = 0
         for (c in s) {
             val data: CounterWithIndex? = map[c]
@@ -26,6 +25,5 @@ class Solution {
         // 1よ理大きいものを除いたものなかから、indexが最小のものを返す。
         // 見つからなかったら -1を返す。
         return map.filterNot { it.value.counter > 1 }.values.minBy { it.index }?.index ?: -1
-
     }
 }
