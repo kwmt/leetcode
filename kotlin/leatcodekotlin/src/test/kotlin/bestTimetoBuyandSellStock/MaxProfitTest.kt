@@ -1,6 +1,7 @@
 package bestTimetoBuyandSellStock
 
 import BestTimetoBuyandSellStock2.Solution
+import com.google.common.truth.Truth.assertThat
 import org.junit.Before
 import org.junit.Test
 
@@ -19,6 +20,6 @@ class MaxProfitTest {
         // TODO: テストに失敗するので成功させる
 //        val prices = intArrayOf(7, 1, 5, 3, 6, 4)
 //        val result = target.maxProfit(prices)
-//        assertEquals(5, result)
+//        assertThat(result).isEqualTo(5)
     }
 }
