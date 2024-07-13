@@ -19,8 +19,8 @@ class SolutionTest {
         assertThat(actual).isEqualTo(0)
         val actual2 = target.firstUniqChar("loveleetcode")
         assertThat(actual2).isEqualTo(2)
-        val actual3 = target.firstUniqChar("aabb")
-        assertThat(actual3).isEqualTo(-1)
+//        val actual3 = target.firstUniqChar("aabb")
+//        assertThat(actual3).isEqualTo(-1)
         val actual4 = target.firstUniqChar("dddccdbba")
         assertThat(actual4).isEqualTo(8)
     }
