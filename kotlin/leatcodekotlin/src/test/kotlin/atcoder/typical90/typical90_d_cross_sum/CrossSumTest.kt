@@ -7,18 +7,21 @@ import org.junit.Test
 class CrossSumTest {
     @Test
     fun test() {
-//        val input: String = """
-//            1
-//            2 3
-//            test
-//        """.trimIndent()
-//        val output: String = """
-//            6 test
-//        """.trimIndent()
-//
-//        judge(input, output) {
-//            val crossSum = CrossSum()
-//            crossSum.main()
-//        }
+        val input: String = """
+            3 3
+            1 1 1
+            1 1 1
+            1 1 1
+        """.trimIndent()
+        val output: String = """
+5 5 5
+5 5 5
+5 5 5
+        """.trimIndent()
+
+        judge(input, output) {
+            val crossSum = CrossSum()
+            crossSum.main()
+        }
     }
 }
